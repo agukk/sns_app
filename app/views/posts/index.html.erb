@@ -1,0 +1,10 @@
+<h1>Posts list</h1>
+
+<%= button_to "投稿する", {controller: 'posts', action: 'new'}, {method: :get} %>
+
+<% @posts.each do |post| %>
+    <span>タイトル: </span> <%= post.title%> <br>
+    <span>本文: </span> <%= post.content%> <br>
+    <span>投稿時間: </span> <%= post.created_at%> <br>
+    <br>
+<% end %>
