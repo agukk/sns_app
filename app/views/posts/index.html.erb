@@ -2,6 +2,8 @@
 
 <%= button_to "投稿する", {controller: 'posts', action: 'new'}, {method: :get} %>
 
+<%= flash[:success] %> 
+
 <% @posts.each do |post| %>
     <span>タイトル: </span> <%= post.title%> <br>
     <span>本文: </span> <%= post.content%> <br>
