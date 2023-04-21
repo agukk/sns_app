@@ -1,11 +1,11 @@
 <h1>Posts list</h1>
 
-<%= button_to "投稿する", {controller: 'posts', action: 'new'}, {method: :get} %>
-
-<%= flash[:success] %>  
-<br>
+<% if user_signed_in? %>
+    <%= button_to "投稿する", {controller: 'posts', action: 'new'}, {method: :get} %>
+<% end %>
 
 <% @posts.each do |post| %>
+    <span>投稿者：</span><%= post.user.name %>
     <span>タイトル: </span> <%= link_to post.title, "posts/#{post.id}" %> 
     <br>
     <span>投稿時間: </span> <%= post.created_at%> 

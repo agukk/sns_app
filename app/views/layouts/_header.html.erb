@@ -1,0 +1,13 @@
+<h1><%= link_to "SNS", "/"%></h1>
+
+<% if user_signed_in? %>
+  <%= current_user.name %><span>がログインしています</span>
+  <ul>
+    <li><%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "header-nav" %></li>
+  </ul>
+<% else %>
+  <ul>
+    <li><%= link_to "LogIn", new_user_session_path, class: "header-nav" %></li>
+    <li><%= link_to "SignUp", new_user_registration_path, class: "header-nav" %></li>
+  </ul>
+<% end %>
