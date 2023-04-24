@@ -1,0 +1,16 @@
+<h3>タイトル</h3>
+<%= @post.title %>
+<br>
+
+<h3>本文</h3>
+<%= @post.content %>
+<br>
+<br>
+
+<% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to "Edit", "/posts/#{@post.id}/edit" %>
+    <%= link_to "Delete", "/posts/#{@post.id}", method: :delete %>
+    <br>
+<% end %>
+
+<%= render 'back' %>
